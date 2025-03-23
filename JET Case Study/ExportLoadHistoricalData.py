@@ -31,7 +31,7 @@ while True:
         else:
             i += 1
     except requests.exceptions.RequestException as e:
-        logging.error(f"Request failed for comic ID {i}: {e}")
+        logging.error(f"Request failed for comic no. {i}: {e}")
         break
 
 # Convert list to DataFrame
@@ -53,3 +53,5 @@ engine = create_engine('postgresql+psycopg2://postgres:legiunia98@localhost/jet_
 df1.to_sql('comics', engine, if_exists='replace', index=False, chunksize=1000)
 
 logging.info(f"Fetched {len(df1)} comics successfully!")
+
+
